@@ -11,7 +11,7 @@ class MainShop extends StatefulWidget {
 }
 
 class _MainShopState extends State<MainShop> {
-  Widget currentWidget = OrderListShop();
+  Widget currentWidget =OrderListShop();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class _MainShopState extends State<MainShop> {
             infomationMenu(),
             signOutMenu(),
           ],
-        ),
+        ), 
       );
 
   ListTile homeMenu() => ListTile(

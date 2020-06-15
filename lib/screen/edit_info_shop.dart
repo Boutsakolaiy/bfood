@@ -24,6 +24,7 @@ class _EditInfoShopState extends State<EditInfoShop> {
   Location location = Location();
   double lat, lng;
   File file;
+  final picker = ImagePicker();
 
   @override
   void initState() {
@@ -211,14 +212,14 @@ class _EditInfoShopState extends State<EditInfoShop> {
 
   Future<Null> chooseImage(ImageSource source) async {
     try {
-      var object = await ImagePicker.pickImage(
+      var object = await picker.getImage(
         source: source,
         maxWidth: 800.0,
         maxHeight: 800.0,
       );
 
       setState(() {
-        file = object;
+        file = File(object.path);
       });
     } catch (e) {}
   }

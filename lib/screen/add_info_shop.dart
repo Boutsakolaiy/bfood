@@ -20,6 +20,7 @@ class _AddInfoShopState extends State<AddInfoShop> {
   double lat, lng;
   File file;
   String nameShop, address, phone, urlImage;
+  final picker = ImagePicker();
 
   @override
   void initState() {
@@ -197,14 +198,14 @@ class _AddInfoShopState extends State<AddInfoShop> {
 
   Future<Null> chooseImage(ImageSource imageSource) async {
     try {
-      var object = await ImagePicker.pickImage(
+      var object = await picker.getImage(
         source: imageSource,
         maxHeight: 800.0,
         maxWidth: 800.0,
       );
 
       setState(() {
-        file = object;
+        file = File(object.path);
       });
     } catch (e) {}
   }
