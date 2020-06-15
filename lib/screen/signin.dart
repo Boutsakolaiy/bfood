@@ -4,6 +4,7 @@ import 'package:bfood_app/model/user_model.dart';
 import 'package:bfood_app/screen/main_rider.dart';
 import 'package:bfood_app/screen/main_shop.dart';
 import 'package:bfood_app/screen/main_user.dart';
+import 'package:bfood_app/utility/my_constant.dart';
 import 'package:bfood_app/utility/my_style.dart';
 import 'package:bfood_app/utility/normal_dialog.dart';
 import 'package:dio/dio.dart';
@@ -75,7 +76,7 @@ class _SignInState extends State<SignIn> {
   }
 
   Future<Null> checkAuthen() async {
-     String url = 'http://192.168.43.125/bfood/getUserWhereUser.php?isAdd=true&User=$user';
+     String url = '${MyConstant().domain}/bfood/getUserWhereUser.php?isAdd=true&User=$user';
      try{
        Response response = await Dio().get(url);
        print('res = $response');

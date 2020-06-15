@@ -1,3 +1,4 @@
+import 'package:bfood_app/utility/my_constant.dart';
 import 'package:bfood_app/utility/my_style.dart';
 import 'package:bfood_app/utility/normal_dialog.dart';
 import 'package:dio/dio.dart';
@@ -74,7 +75,7 @@ class _SignUpState extends State<SignUp> {
   }
 
   Future<Null> checkUser() async {
-    String url = 'http://192.168.43.125/bfood/getUserWhereUser.php?isAdd=true&User=$user';
+    String url = '${MyConstant().domain}/bfood/getUserWhereUser.php?isAdd=true&User=$user';
     try{
       Response response = await Dio().get(url);
       if(response.toString() == 'null'){
@@ -88,7 +89,7 @@ class _SignUpState extends State<SignUp> {
   }
 
   Future<Null> registerTread() async {
-    String url = 'http://192.168.43.125/bfood/addUser.php?isAdd=true&Name=$name&User=$user&Password=$password&ChooseType=$chooseType';
+    String url = '${MyConstant().domain}/bfood/addUser.php?isAdd=true&Name=$name&User=$user&Password=$password&ChooseType=$chooseType';
 
     try{
       Response response = await Dio().get(url);
